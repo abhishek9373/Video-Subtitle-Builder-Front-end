@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Homepage from "./components/Homepage";
+import Onboard from "./components/Onboard";
+import { Data } from "./services/Store";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Builder from "./components/Builder";
+import Playerpage from "./components/Playerpage";
 
 function App() {
+  const [file, setFile] = useState(null);
+
+  const contextValues = {
+    file,
+    updateFile: (newFile) => setFile(newFile),
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Data.Provider value={contextValues}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Onboard />} />
+          <Route path="/selectvideo" element={<Homepage />} />
+          <Route path="/video" element={<Builder />} />
+          <Route path="/video/:videoId" element={<Playerpage />} />
+        </Routes>
+      </BrowserRouter>
+    </Data.Provider>
   );
 }
 
