@@ -1,0 +1,31 @@
+#onboard-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#name{
+    margin-top: 7px;
+    height: 40px;
+    width: 300px;
+    font-size: 1.2em;
+    padding-left: 10px;
+    outline: none;
+    border-radius: 8px;
+    border: 1.8px solid #365486;
+    background-color: #7FC7D9;
+}
+
+#submit-name{
+    float: right;
+    margin-top: 15px;
+    height: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0F1035;
+    color: white;
+    cursor: pointer;
+}

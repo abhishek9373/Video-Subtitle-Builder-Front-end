@@ -1,0 +1,19 @@
+#home-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#submit-name{
+    float: right;
+    margin-top: 15px;
+    height: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0F1035;
+    color: white;
+}
