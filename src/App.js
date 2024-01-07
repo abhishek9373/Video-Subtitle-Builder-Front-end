@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Homepage from "./components/Homepage";
 import Onboard from "./components/Onboard";
-import { Data } from "./services/Store";
+import { Data } from "./services/store";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Builder from "./components/Builder";

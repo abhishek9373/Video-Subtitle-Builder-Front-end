@@ -4,7 +4,7 @@ import { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import ReactPlayer from "react-player";
 import { useContext } from "react";
-import { Data } from "../services/Store";
+import { Data } from "../services/store";
 import { useNavigate } from "react-router-dom"
 
 const fileTypes = ["mp4 ", "avi", "mkv", "mpeg", "MP4"];
