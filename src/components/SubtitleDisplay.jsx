@@ -1,13 +1,13 @@
 import React from "react";
+import '../styles/playerpage.css'
 
 const SubtitleDisplay = ({ subtitles, played, videoDuration }) => {
     const convertToSeconds = (time) => {
         const [hh, mm, ss] = time.split(':').map(Number);
-      
         // Check if ss is a string, otherwise set it to '0'
-        const seconds = typeof ss === 'string' ? parseFloat(ss.replace(',', '.')) : 0;
-      
-        return hh * 3600 + mm * 60 + seconds;
+        // const seconds = typeof ss === 'string' ? parseFloat(ss.replace(',', '.')) : 0;
+        console.log(hh * 3600 + mm * 60 + ss)
+        return hh * 3600 + mm * 60 + ss;
       };
 
   const playedSeconds = played * videoDuration;
@@ -19,7 +19,7 @@ const SubtitleDisplay = ({ subtitles, played, videoDuration }) => {
   );
 
   return (
-    <div>
+    <div className="subtitle-display">
       {currentSubtitle && (
         <div>
           <p>{currentSubtitle.text}</p>

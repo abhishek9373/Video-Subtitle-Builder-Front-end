@@ -14,6 +14,11 @@ export default function Builder() {
     if (!file) navigate("/selectvideo");
   }, [file]);
 
+  useEffect(()=>{
+    const userId = localStorage.getItem("userId");
+    if(!userId) navigate("/");
+  }, [])
+
   return (
     <div id="builder-aligner">
       {file && <Player url={URL.createObjectURL(file)} />}

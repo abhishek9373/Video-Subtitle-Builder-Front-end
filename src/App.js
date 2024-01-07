@@ -3,10 +3,10 @@ import "./App.css";
 import Homepage from "./components/Homepage";
 import Onboard from "./components/Onboard";
 import { Data } from "./services/store";
-import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Builder from "./components/Builder";
 import Playerpage from "./components/Playerpage";
+import Listing from "./components/Listing";
 
 function App() {
   const [file, setFile] = useState(null);
@@ -24,6 +24,7 @@ function App() {
           <Route path="/selectvideo" element={<Homepage />} />
           <Route path="/video" element={<Builder />} />
           <Route path="/video/:videoId" element={<Playerpage />} />
+          <Route path="/myvideos" element={<Listing />} />
         </Routes>
       </BrowserRouter>
     </Data.Provider>

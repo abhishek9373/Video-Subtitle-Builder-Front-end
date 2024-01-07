@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useMemo } from "react";
 import "../styles/homepage.css";
 import { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
@@ -17,6 +17,11 @@ function Homepage() {
     setRawFile(file);
     updateFile(file);
   };
+
+  useEffect(()=>{
+    const userId = localStorage.getItem("userId");
+    if(!userId) navigate("/");
+  }, [])
 
   return (
     <div id="home-container">
@@ -42,6 +47,7 @@ function Homepage() {
       )}
 
       {rawFile && (<button name="submit-name" id="submit-name" onClick={()=>navigate("/video")}>Next</button>)}
+      <button onClick={()=> navigate('/myvideos')}>my videos</button>
     </div>
   );
 }

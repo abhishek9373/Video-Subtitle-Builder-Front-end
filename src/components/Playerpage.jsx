@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import parseSrt from "../services/srt-parser";
 import SubtitleDisplay from "./SubtitleDisplay";
 import { VIDEO_UPLOAD } from "../shared/constants/routes.constants";
+import '../styles/playerpage.css'
+import { useNavigate } from "react-router-dom";
 
 export default function Playerpage() {
   const { videoId } = useParams();
@@ -13,7 +15,7 @@ export default function Playerpage() {
   const [subtitles, setSubtitles] = useState([]);
   const [played, setPlayed] = useState(0);
   const [videoDuration, setVideoDuration] = useState(null);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchVideoUrl = async () => {
       try {
@@ -64,13 +66,13 @@ export default function Playerpage() {
   };
 
   return (
-    <div>
+    <div id="playerpage-container">
       {videoUrl && (
         <>
           <ReactPlayer
             url={videoUrl}
             controls
-            width="75%"
+            width="70%"
             height="auto"
             onProgress={handleProgress}
             onDuration={handleDuration}
@@ -81,10 +83,12 @@ export default function Playerpage() {
               subtitles={subtitles}
               played={played}
               videoDuration={videoDuration}
+              className = "subtitle-display"
             />
           )}
         </>
       )}
+      <button onClick={()=> navigate('/myvideos')}>my videos</button>
     </div>
   );
 }
